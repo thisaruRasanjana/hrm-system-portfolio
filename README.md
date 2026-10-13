@@ -432,7 +432,7 @@ The project was built by a team of five developers. The following is based on ve
 | Thisaru Ramanayake | `Thisaru Ramanayaka` |
 | Sachintha Dilshan | `sachintha dilshan` |
 | Sanduni Liyanage | `SanduniLiyanage`, `Sanduni Liyanage` |
-| Nagitha DS | `NagithaDS` |
+| Nagitha Dilshan | `NagithaDS` |
 | Prageeth Madusanka | `prageeth20010311-del`, `Prageeth Madusanka` |
 
 > **Approximate commit counts from `git log`:**
