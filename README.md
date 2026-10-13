@@ -67,15 +67,15 @@ The authentication system is built on JWT with short-lived access tokens (15 min
 
 | Capability | Status |
 |---|---|
-| JWT-based login with secure cookie storage | ✅ Implemented |
-| Time-based One-Time Password (TOTP) two-factor authentication (2FA) | ✅ Implemented |
-| First-login mandatory password change for new employees | ✅ Implemented |
-| Temporary password expiry (configurable, default 7 days) | ✅ Implemented |
-| Forgot password with OTP-based reset flow | ✅ Implemented |
-| Password policy enforcement (length, complexity, context-aware) | ✅ Implemented |
-| Rate limiting on login and OTP endpoints | ✅ Implemented |
-| Audit logging of authentication events | ✅ Implemented |
-| Session revocation on password change across all devices | ✅ Implemented |
+| JWT-based login with secure cookie storage |  Implemented |
+| Time-based One-Time Password (TOTP) two-factor authentication (2FA) |  Implemented |
+| First-login mandatory password change for new employees |  Implemented |
+| Temporary password expiry (configurable, default 7 days) |  Implemented |
+| Forgot password with OTP-based reset flow |  Implemented |
+| Password policy enforcement (length, complexity, context-aware) |  Implemented |
+| Rate limiting on login and OTP endpoints |  Implemented |
+| Audit logging of authentication events |  Implemented |
+| Session revocation on password change across all devices |  Implemented |
 
 The password policy requires at minimum: 8–72 characters, uppercase and lowercase letters, a digit, a special character, and disallows passwords containing the user's name or email. The same policy is mirrored for live validation in the frontend.
 
@@ -87,14 +87,14 @@ Centralised employee records and lifecycle management, including:
 
 | Capability | Status |
 |---|---|
-| Employee profile creation with full personal, contact, and bank details | ✅ Implemented |
-| Department and designation assignment | ✅ Implemented |
-| Designation history tracking (with start and end dates) | ✅ Implemented |
-| Soft-delete (deactivated employees retain historical records) | ✅ Implemented |
-| Partial-unique index enforcement (reuse of employee IDs and emails after deactivation) | ✅ Implemented |
-| Automated welcome email with temporary password on creation | ✅ Implemented |
-| "Resend login details" action for HR (with full session revocation) | ✅ Implemented |
-| Profile image upload | ✅ Implemented |
+| Employee profile creation with full personal, contact, and bank details |  Implemented |
+| Department and designation assignment |  Implemented |
+| Designation history tracking (with start and end dates) |  Implemented |
+| Soft-delete (deactivated employees retain historical records) |  Implemented |
+| Partial-unique index enforcement (reuse of employee IDs and emails after deactivation) |  Implemented |
+| Automated welcome email with temporary password on creation |  Implemented |
+| "Resend login details" action for HR (with full session revocation) |  Implemented |
+| Profile image upload |  Implemented |
 
 Employee records are linked one-to-one with user accounts. Soft-deletion is used throughout so historical payroll, audit, and attendance data remains intact after an employee is deactivated.
 
@@ -124,20 +124,20 @@ A full Applicant Tracking System supporting multi-round hiring workflows:
 
 | Capability | Status |
 |---|---|
-| Vacancy lifecycle: Draft → Active → Closed | ✅ Implemented |
-| Public job portal with candidate application form | ✅ Implemented |
-| Google reCAPTCHA v2 on public submission form | ✅ Implemented |
-| Duplicate application prevention (SHA-256 hash + unique email per vacancy) | ✅ Implemented |
-| CV upload (PDF and DOCX), with MIME-type and size validation | ✅ Implemented |
-| AI-assisted CV screening and scoring (see §3.5) | ✅ Implemented |
-| Kanban-style candidate pipeline (Uploaded → Called → First Round → Second Round → Offered/Rejected) | ✅ Implemented |
-| Dynamic interview panel creation and membership management | ✅ Implemented |
-| Panel-scoped access control (interviewers see only their assigned vacancies) | ✅ Implemented |
-| Multi-dimensional interview scoring (Technical, Communication, Cultural Fit, Leadership, Problem Solving — 5 criteria × 5 points) | ✅ Implemented |
-| Normalised aggregate scoring across panel members | ✅ Implemented |
-| Final decision workflow: Proceed / Job Offered / Rejected | ✅ Implemented |
-| Automated email notifications to candidates (scheduling, offer, rejection) | ✅ Implemented |
-| Audit trail for ATS state changes | ✅ Implemented |
+| Vacancy lifecycle: Draft → Active → Closed |  Implemented |
+| Public job portal with candidate application form |  Implemented |
+| Google reCAPTCHA v2 on public submission form |  Implemented |
+| Duplicate application prevention (SHA-256 hash + unique email per vacancy) |  Implemented |
+| CV upload (PDF and DOCX), with MIME-type and size validation |  Implemented |
+| AI-assisted CV screening and scoring (see §3.5) |  Implemented |
+| Kanban-style candidate pipeline (Uploaded → Called → First Round → Second Round → Offered/Rejected) |  Implemented |
+| Dynamic interview panel creation and membership management |  Implemented |
+| Panel-scoped access control (interviewers see only their assigned vacancies) |  Implemented |
+| Multi-dimensional interview scoring (Technical, Communication, Cultural Fit, Leadership, Problem Solving — 5 criteria × 5 points) |  Implemented |
+| Normalised aggregate scoring across panel members |  Implemented |
+| Final decision workflow: Proceed / Job Offered / Rejected |  Implemented |
+| Automated email notifications to candidates (scheduling, offer, rejection) |  Implemented |
+| Audit trail for ATS state changes |  Implemented |
 
 The candidate pipeline is tracked through a defined status vocabulary (`Uploaded`, `Called`, `First Round`, `Second Round Pending`, `Second Round`, `Job Offered`, `Rejected`), enforced on both the backend service layer and the frontend interface.
 
@@ -149,13 +149,13 @@ An independent AI microservice handles CV parsing and candidate scoring so that 
 
 | Capability | Status |
 |---|---|
-| Standalone FastAPI microservice on a separate port | ✅ Implemented |
-| CV text extraction from PDF and DOCX | ✅ Implemented |
-| Multi-provider AI support (Groq/Llama 3, Google Gemini, OpenAI GPT, Anthropic Claude) | ✅ Implemented |
-| Configurable provider and model via environment variables (no code changes needed) | ✅ Implemented |
-| 0–100 AI match score with professional reasoning text | ✅ Implemented |
-| Deterministic regex fallback for contact extraction if AI is unavailable | ✅ Implemented |
-| Primary and fallback model configuration for quota resilience | ✅ Implemented |
+| Standalone FastAPI microservice on a separate port |  Implemented |
+| CV text extraction from PDF and DOCX |  Implemented |
+| Multi-provider AI support (Groq/Llama 3, Google Gemini, OpenAI GPT, Anthropic Claude) |  Implemented |
+| Configurable provider and model via environment variables (no code changes needed) |  Implemented |
+| 0–100 AI match score with professional reasoning text |  Implemented |
+| Deterministic regex fallback for contact extraction if AI is unavailable |  Implemented |
+| Primary and fallback model configuration for quota resilience |  Implemented |
 
 The service accepts a CV file path and vacancy context (title, description, requirements, experience level) and returns the extracted candidate name, email, phone, a numeric match score, and a short reasoning statement. The main backend calls this service via HTTP and never imports from it directly, preserving the decoupled architecture.
 
@@ -167,20 +167,20 @@ A comprehensive leave management system with multi-tier approval:
 
 | Capability | Status |
 |---|---|
-| Configurable leave types with optional entitlement limits | ✅ Implemented |
-| Per-role annual entitlement overrides | ✅ Implemented |
-| Employee self-service leave requests | ✅ Implemented |
-| Half-day leave requests | ✅ Implemented |
-| HR-assigned leave on behalf of an employee | ✅ Implemented |
-| Multi-tier approval workflow (Manager → HR/Admin) | ✅ Implemented |
-| Leave balance calculation with proration support | ✅ Implemented |
-| Medical leave conversion workflow | ✅ Implemented |
-| Leave resubmission after rejection | ✅ Implemented |
-| Leave history view for employees | ✅ Implemented |
-| Leave approval/rejection view for managers and HR | ✅ Implemented |
-| Leave accrual rules per employee | ✅ Implemented |
-| PDF leave report export | ✅ Implemented |
-| Email notifications on status changes | ✅ Implemented |
+| Configurable leave types with optional entitlement limits |  Implemented |
+| Per-role annual entitlement overrides |  Implemented |
+| Employee self-service leave requests |  Implemented |
+| Half-day leave requests |  Implemented |
+| HR-assigned leave on behalf of an employee |  Implemented |
+| Multi-tier approval workflow (Manager → HR/Admin) |  Implemented |
+| Leave balance calculation with proration support |  Implemented |
+| Medical leave conversion workflow |  Implemented |
+| Leave resubmission after rejection |  Implemented |
+| Leave history view for employees |  Implemented |
+| Leave approval/rejection view for managers and HR |  Implemented |
+| Leave accrual rules per employee |  Implemented |
+| PDF leave report export |  Implemented |
+| Email notifications on status changes |  Implemented |
 
 The approval routing enforces separation of duties: an employee cannot approve their own leave, and HR-assigned leave is routed to a separate HR/Admin approver rather than the assigner.
 
@@ -192,18 +192,18 @@ A document lifecycle system covering both employee-uploaded documents and HR-gen
 
 | Capability | Status |
 |---|---|
-| Employee document upload with configurable document types | ✅ Implemented |
-| Mandatory document tracking per employee profile | ✅ Implemented |
-| HR review and approval/rejection workflow with reason | ✅ Implemented |
-| Separation of Duties (SoD) routing (HR submissions escalate to Super Admin) | ✅ Implemented |
-| Document template management (HTML/DOCX → PDF generation) | ✅ Implemented |
-| Promotion letter generation from templates via Jinja2 | ✅ Implemented |
-| Employee document request portal (internal) | ✅ Implemented |
-| Inbound email document request parsing (IMAP poller) | ✅ Implemented |
-| RFC 5322 Message-ID idempotency for email-sourced requests (prevents duplicates) | ✅ Implemented |
-| Document request lifecycle: Pending → In Progress → Approved → Completed / Rejected | ✅ Implemented |
-| Flexible file storage: local filesystem or S3-compatible object store (MinIO/AWS S3) | ✅ Implemented |
-| UUID primary keys on document records to prevent enumerable download URLs | ✅ Implemented |
+| Employee document upload with configurable document types |  Implemented |
+| Mandatory document tracking per employee profile |  Implemented |
+| HR review and approval/rejection workflow with reason |  Implemented |
+| Separation of Duties (SoD) routing (HR submissions escalate to Super Admin) |  Implemented |
+| Document template management (HTML/DOCX → PDF generation) |  Implemented |
+| Promotion letter generation from templates via Jinja2 |  Implemented |
+| Employee document request portal (internal) |  Implemented |
+| Inbound email document request parsing (IMAP poller) |  Implemented |
+| RFC 5322 Message-ID idempotency for email-sourced requests (prevents duplicates) |  Implemented |
+| Document request lifecycle: Pending → In Progress → Approved → Completed / Rejected |  Implemented |
+| Flexible file storage: local filesystem or S3-compatible object store (MinIO/AWS S3) |  Implemented |
+| UUID primary keys on document records to prevent enumerable download URLs |  Implemented |
 
 ---
 
@@ -213,17 +213,17 @@ A work-session tracking system with overtime calculation:
 
 | Capability | Status |
 |---|---|
-| Clock-in / Clock-out per work session | ✅ Implemented |
-| Pause and Resume support (multiple check-in/out pairs per day) | ✅ Implemented |
-| Daily work summary (total hours, overtime) | ✅ Implemented |
-| Configurable overtime threshold (hours/day), versioned with effective dates | ✅ Implemented |
-| Historical overtime values frozen at the threshold that was active when finalized | ✅ Implemented |
-| UTC timestamp storage with local-timezone day boundary logic | ✅ Implemented |
-| Auto-finalization of abandoned sessions at local midnight | ✅ Implemented |
-| Auto-start of new day when an employee clocks in after midnight | ✅ Implemented |
-| Attendance view for the current employee | ✅ Implemented |
-| HR/Admin view of all employees' attendance | ✅ Implemented |
-| Week and period-based attendance report views | ✅ Implemented |
+| Clock-in / Clock-out per work session |  Implemented |
+| Pause and Resume support (multiple check-in/out pairs per day) |  Implemented |
+| Daily work summary (total hours, overtime) |  Implemented |
+| Configurable overtime threshold (hours/day), versioned with effective dates |  Implemented |
+| Historical overtime values frozen at the threshold that was active when finalized |  Implemented |
+| UTC timestamp storage with local-timezone day boundary logic |  Implemented |
+| Auto-finalization of abandoned sessions at local midnight |  Implemented |
+| Auto-start of new day when an employee clocks in after midnight |  Implemented |
+| Attendance view for the current employee |  Implemented |
+| HR/Admin view of all employees' attendance |  Implemented |
+| Week and period-based attendance report views |  Implemented |
 
 ---
 
@@ -252,20 +252,20 @@ Widget sizes and positions are validated server-side on save to prevent layout c
 
 | Capability | Status |
 |---|---|
-| In-app notifications for leave status changes, document approvals, events, holidays | ✅ Implemented |
-| Per-user notification preferences (in-app and email, per category) | ✅ Implemented |
-| Configurable notification retention (auto-purge after N days, or keep forever) | ✅ Implemented |
-| Holiday reminder notifications (background scheduler, 24-hour advance notice) | ✅ Implemented |
-| Distributed deduplication via database (prevents duplicate sends across worker processes) | ✅ Implemented |
+| In-app notifications for leave status changes, document approvals, events, holidays |  Implemented |
+| Per-user notification preferences (in-app and email, per category) |  Implemented |
+| Configurable notification retention (auto-purge after N days, or keep forever) |  Implemented |
+| Holiday reminder notifications (background scheduler, 24-hour advance notice) |  Implemented |
+| Distributed deduplication via database (prevents duplicate sends across worker processes) |  Implemented |
 
 **Internal Messaging**
 
 | Capability | Status |
 |---|---|
-| Compose and send messages to All Users, All Employees, HR, or specific Departments | ✅ Implemented |
-| Inbox and Sent views with read/unread tracking | ✅ Implemented |
-| Soft-delete with permanent-delete option | ✅ Implemented |
-| Permission-gated sending (`messaging.send`) | ✅ Implemented |
+| Compose and send messages to All Users, All Employees, HR, or specific Departments |  Implemented |
+| Inbox and Sent views with read/unread tracking |  Implemented |
+| Soft-delete with permanent-delete option |  Implemented |
+| Permission-gated sending (`messaging.send`) |  Implemented |
 
 ---
 
@@ -273,13 +273,13 @@ Widget sizes and positions are validated server-side on save to prevent layout c
 
 | Capability | Status |
 |---|---|
-| Company-wide announcements (create, edit, delete) | ✅ Implemented |
-| Upcoming events (create, edit, cancel) | ✅ Implemented |
-| Event date stored in UTC; displayed in local time | ✅ Implemented |
-| Prevention of past-dated event creation | ✅ Implemented |
-| Event create/update/cancel notifications to all active users | ✅ Implemented |
-| Public holiday calendar management | ✅ Implemented |
-| Calendar view integrated into dashboard widget | ✅ Implemented |
+| Company-wide announcements (create, edit, delete) |  Implemented |
+| Upcoming events (create, edit, cancel) |  Implemented |
+| Event date stored in UTC; displayed in local time |  Implemented |
+| Prevention of past-dated event creation |  Implemented |
+| Event create/update/cancel notifications to all active users |  Implemented |
+| Public holiday calendar management |  Implemented |
+| Calendar view integrated into dashboard widget |  Implemented |
 
 ---
 
@@ -287,9 +287,9 @@ Widget sizes and positions are validated server-side on save to prevent layout c
 
 | Capability | Status |
 |---|---|
-| Leave report generation (filterable by employee, type, date range) | ✅ Implemented |
-| PDF export of leave reports via ReportLab | ✅ Implemented |
-| Time tracking / attendance reports (daily, weekly, monthly views) | ✅ Implemented |
+| Leave report generation (filterable by employee, type, date range) |  Implemented |
+| PDF export of leave reports via ReportLab |  Implemented |
+| Time tracking / attendance reports (daily, weekly, monthly views) |  Implemented |
 
 ---
 
@@ -438,7 +438,7 @@ The project was built by a team of five developers. The following is based on ve
 > **Approximate commit counts from `git log`:**
 > Sachintha Dilshan ~112 · Thisaru Ramanayake ~60 · Sanduni Liyanage ~48 · Nagitha DS ~20 · Prageeth Madusanka ~16
 >
-> ⚠️ Commit count is not an accurate measure of contribution. Large features may land in a single commit; refactors may produce many small ones.
+>  Commit count is not an accurate measure of contribution. Large features may land in a single commit; refactors may produce many small ones.
 
 ### Contribution Areas (from commit messages and code authorship)
 
@@ -455,7 +455,7 @@ The project was built by a team of five developers. The following is based on ve
 | Database migrations, seed scripts, test suite | All contributors |
 | Final handover hardening and deployment documentation | Sanduni Liyanage |
 
-> ⚠️ These attributions are derived from Git commit metadata. The exact scope of each person's contribution to any given module should be verified directly with the team. Collaborative branches, pair programming, and code reviews may not be fully reflected in commit authorship alone.
+>  These attributions are derived from Git commit metadata. The exact scope of each person's contribution to any given module should be verified directly with the team. Collaborative branches, pair programming, and code reviews may not be fully reflected in commit authorship alone.
 
 ---
 
